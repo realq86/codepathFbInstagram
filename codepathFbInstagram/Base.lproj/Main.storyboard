@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BUu-VP-2zd">
-                                <rect key="frame" x="37.5" y="228.5" width="300" height="211.5"/>
+                                <rect key="frame" x="37.5" y="213.5" width="300" height="241.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byC-hS-cBc">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -72,6 +72,13 @@
                                             <action selector="signInButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JrJ-nB-E7g"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="18C-Id-M1P">
+                                        <rect key="frame" x="0.0" y="211.5" width="300" height="30"/>
+                                        <state key="normal" title="Logout"/>
+                                        <connections>
+                                            <action selector="logoutButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="35e-97-UkQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -85,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="emailField" destination="w9F-UM-wsY" id="Fzo-oq-fz6"/>
+                        <outlet property="logoutButton" destination="18C-Id-M1P" id="70R-Ea-z0p"/>
                         <outlet property="passwordField" destination="0eb-yP-NLu" id="yA5-O1-2Kf"/>
                         <outlet property="signButton" destination="oaF-eg-mIV" id="Llh-3x-Vp8"/>
                         <outlet property="userNameField" destination="fBG-fq-EMj" id="lNU-UA-D9X"/>
@@ -93,20 +101,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="kZL-yF-yvS">
             <objects>
-                <viewController storyboardIdentifier="AuthenticatedViewController" id="Wrb-QP-lS4" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticatedViewController" id="Wrb-QP-lS4" customClass="FeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rIY-ex-591">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PcG-gU-bNe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="U9W-CS-Tml">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U9W-CS-Tml" id="sEK-9v-Wkb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-zK-ZlK">
+                                <rect key="frame" x="160" y="612" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="Wrb-QP-lS4" eventType="touchUpInside" id="Bnn-lg-9wR"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.69205560570000002" green="0.89755417670000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pqx-zK-ZlK" firstAttribute="centerX" secondItem="rIY-ex-591" secondAttribute="centerX" id="DEG-EK-2j9"/>
+                            <constraint firstItem="tUy-xB-V2j" firstAttribute="bottom" secondItem="pqx-zK-ZlK" secondAttribute="bottom" constant="25" id="KHV-Ed-lYO"/>
+                            <constraint firstItem="tUy-xB-V2j" firstAttribute="bottom" secondItem="PcG-gU-bNe" secondAttribute="bottom" id="T6S-Zv-0G5"/>
+                            <constraint firstItem="PcG-gU-bNe" firstAttribute="top" secondItem="tUy-xB-V2j" secondAttribute="top" id="TZj-t7-Zcw"/>
+                            <constraint firstItem="tUy-xB-V2j" firstAttribute="trailing" secondItem="PcG-gU-bNe" secondAttribute="trailing" id="Xos-as-FZu"/>
+                            <constraint firstItem="PcG-gU-bNe" firstAttribute="leading" secondItem="tUy-xB-V2j" secondAttribute="leading" id="ntL-gT-o0g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tUy-xB-V2j"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="PcG-gU-bNe" id="1sW-IP-NP3"/>
+                        <segue destination="6W8-yb-qtv" kind="presentation" identifier="showCamera" id="Fvq-P5-IRx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmf-lT-0GC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="783" y="133"/>
+        </scene>
+        <!--Camera View Controller-->
+        <scene sceneID="ggk-MM-JEh">
+            <objects>
+                <viewController id="6W8-yb-qtv" customClass="CameraViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F7D-b5-y87">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-ct-0s4">
+                                <rect key="frame" x="20" y="40" width="30" height="30"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="xTapped:" destination="6W8-yb-qtv" eventType="touchUpInside" id="7BF-QN-QjS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="iMA-ct-0s4" firstAttribute="leading" secondItem="Qs2-T4-8OV" secondAttribute="leading" constant="20" id="2Zz-gN-uVj"/>
+                            <constraint firstItem="iMA-ct-0s4" firstAttribute="top" secondItem="Qs2-T4-8OV" secondAttribute="top" constant="20" id="RQh-vI-910"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Qs2-T4-8OV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvK-vM-bBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1505" y="130"/>
         </scene>
     </scenes>
 </document>
