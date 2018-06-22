@@ -75,5 +75,16 @@
     }];
 }
     
+    
+- (IBAction)logoutButtonTapped:(UIButton *)sender {
+
+[PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+    // PFUser.current() will now be nil
+}];
+
+}
+    
+    
+    
 
 @end
