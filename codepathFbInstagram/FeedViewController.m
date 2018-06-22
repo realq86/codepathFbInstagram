@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController.h"
+#import "Post.h"
 
 @interface FeedViewController ()
 
@@ -26,6 +27,20 @@
     
     
 - (IBAction)cameraTapped:(id)sender {
+    
+    Post *post = [Post new];
+    post.postID = @"PostID";
+    post.userID = @"userID";
+    
+    [post saveInBackground];
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
     
     [self performSegueWithIdentifier:@"showCamera" sender:nil];
 }
