@@ -8,6 +8,8 @@
 
 #import "FeedViewController.h"
 #import "Post.h"
+#import "Parse/Parse.h"
+
 
 @interface FeedViewController ()
 
@@ -27,24 +29,6 @@
     
     
 - (IBAction)cameraTapped:(id)sender {
-    
-//    Post *post = [Post new];
-//    post.postID = @"PostID";
-//    post.userID = @"userID";
-//    post.image =
-//
-//    [post saveInBackground];
-//    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            // The object has been saved.
-//        }
-//        else {
-//            NSLog(@"%@", error.localizedDescription);
-//        }
-//    }];
-//
-//    [self performSegueWithIdentifier:@"showCamera" sender:nil];
-    
     
 #pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Camera-Quickstart#permissions
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -77,6 +61,7 @@
 //    }
 //
 //    [self presentViewController:imagePickerVC animated:YES completion:nil];
+
     
 }
     
@@ -90,6 +75,32 @@
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+#pragma mark #2 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#pfobject
+    PFObject *post = [[PFObject alloc] initWithClassName:@"Post"];
+    post[@"postID"] = @"PostID";
+    post[@"userID"] = @"userID";
+    PFFile *imageFile = [PFFile fileWithName:@"photo.png" data:UIImagePNGRepresentation(editedImage)]; //editedImage is UIImage *
+    post[@"image"] = imageFile;
+    
+    //    Post *post = [Post new];
+    //    post.postID = @"PostID";
+    //    post.userID = @"userID";
+    //    post.image =
+    
+    [post saveInBackground];
+    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // The object has been saved.
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+#pragma mark #2 END
+
+    
 }
 #pragma mark #1 END
 
