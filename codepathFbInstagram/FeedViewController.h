@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FeedViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
     
     
     @property (strong, nonatomic) IBOutlet UITableView *tableView;
