@@ -100,6 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="28" y="133"/>
         </scene>
         <!--Feed View Controller-->
         <scene sceneID="kZL-yF-yvS">
@@ -113,15 +114,36 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="U9W-CS-Tml">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="U9W-CS-Tml" customClass="InstagramPostTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U9W-CS-Tml" id="sEK-9v-Wkb">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbq-KU-Dt8" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="bbq-KU-Dt8" firstAttribute="top" secondItem="sEK-9v-Wkb" secondAttribute="top" id="ZPZ-Rt-WYC"/>
+                                                <constraint firstAttribute="trailing" secondItem="bbq-KU-Dt8" secondAttribute="trailing" id="jek-Q9-9Yq"/>
+                                                <constraint firstItem="bbq-KU-Dt8" firstAttribute="leading" secondItem="sEK-9v-Wkb" secondAttribute="leading" id="jnz-zR-rON"/>
+                                                <constraint firstAttribute="bottom" secondItem="bbq-KU-Dt8" secondAttribute="bottom" id="w4K-Ov-TOZ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="bbq-KU-Dt8" id="a1A-bK-YKd"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wrb-QP-lS4" id="shv-cc-P9A"/>
+                                    <outlet property="delegate" destination="Wrb-QP-lS4" id="eGB-Zi-7Pi"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-zK-ZlK">
                                 <rect key="frame" x="160" y="612" width="54" height="30"/>
@@ -143,7 +165,7 @@
                         <viewLayoutGuide key="safeArea" id="tUy-xB-V2j"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="PcG-gU-bNe" id="1sW-IP-NP3"/>
+                        <outlet property="tableView" destination="PcG-gU-bNe" id="gxT-Li-vVN"/>
                         <segue destination="6W8-yb-qtv" kind="presentation" identifier="showCamera" id="Fvq-P5-IRx"/>
                     </connections>
                 </viewController>

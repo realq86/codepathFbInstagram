@@ -8,10 +8,13 @@
 
 #import "FeedViewController.h"
 #import "Post.h"
-#import "Parse/Parse.h"
+#import "InstagramPostTableViewCell.h"
 
+//#import "Parse/Parse.h"
 
 @interface FeedViewController ()
+
+@property (strong, nonatomic) NSArray *dataArray;
 
 @end
 
@@ -19,14 +22,67 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dataArray = [NSArray new];
     // Do any additional setup after loading the view.
+    
+//    PFQuery *postQuery = [PFQuery queryWithClassName:@"Post"];
+//    [postQuery whereKeyExists:@"image"];
+////    [postQuery orderByAscending:@"createdAt"];
+//
+//    self.client = [PFLiveQueryClient sharedClient];
+//    self.subscription = [[self.client subscribeToQuery:postQuery] addCreateHandler:^(PFQuery<PFObject *> *query, PFObject *obj) {
+//        Post *post = (Post *)obj;
+//        NSLog(@"New Post added by %@", post.userID);
+//    }];
+
+    // construct PFQuery
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
+
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        
+        if (posts) {
+            // do something with the data fetched
+            NSLog(@"~~~~~~DOWNLOADED~~~~~~~~~~~~ %@", ((Post *)posts[0]).author.email);
+            self.dataArray = posts;
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+            
+        }
+        else {
+            // handle error
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    InstagramPostTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"CellID" forIndexPath:indexPath];
     
+    if (cell) {
+        
+        cell.post = self.dataArray[indexPath.row];
+        return cell;
+    }
+    
+    return nil;
+}
     
 - (IBAction)cameraTapped:(id)sender {
     
@@ -78,28 +134,31 @@
     
     
 #pragma mark #2 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#pfobject
-    PFObject *post = [[PFObject alloc] initWithClassName:@"Post"];
-    post[@"postID"] = @"PostID";
-    post[@"userID"] = @"userID";
-    PFFile *imageFile = [PFFile fileWithName:@"photo.png" data:UIImagePNGRepresentation(editedImage)]; //editedImage is UIImage *
-    post[@"image"] = imageFile;
+//    PFObject *post = [[PFObject alloc] initWithClassName:@"Post"];
+//    post[@"postID"] = @"PostID";
+//    post[@"userID"] = @"userID";
+//    PFFile *imageFile = [PFFile fileWithName:@"photo.png" data:UIImagePNGRepresentation(editedImage)]; //editedImage is UIImage *
+//    post[@"image"] = imageFile;
+//
+//    //    Post *post = [Post new];
+//    //    post.postID = @"PostID";
+//    //    post.userID = @"userID";
+//    //    post.image =
     
-    //    Post *post = [Post new];
-    //    post.postID = @"PostID";
-    //    post.userID = @"userID";
-    //    post.image =
-    
-    [post saveInBackground];
-    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            // The object has been saved.
-        }
-        else {
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
+//    [post saveInBackground];
+//    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // The object has been saved.
+//        }
+//        else {
+//            NSLog(@"%@", error.localizedDescription);
+//        }
+//    }];
 #pragma mark #2 END
 
+    //OR
+    
+    [Post postUserImage:editedImage withCaption:@"Caption" withCompletion:nil];
     
 }
 #pragma mark #1 END

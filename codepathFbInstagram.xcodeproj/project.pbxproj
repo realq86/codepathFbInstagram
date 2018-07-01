@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B1B4FD220E8647C0074633B /* InstagramPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B4FD120E8647C0074633B /* InstagramPostTableViewCell.m */; };
+		8B4A951D20E5CD1300CAB78C /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4A951C20E5CD1300CAB78C /* File.swift */; };
 		8B5BFAF920DB5CCA00F45913 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFAF820DB5CCA00F45913 /* AppDelegate.m */; };
 		8B5BFAFC20DB5CCA00F45913 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFAFB20DB5CCA00F45913 /* ViewController.m */; };
 		8B5BFAFF20DB5CCA00F45913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B5BFAFD20DB5CCA00F45913 /* Main.storyboard */; };
@@ -22,6 +24,10 @@
 /* Begin PBXFileReference section */
 		232CC0634004C306558AA31F /* Pods-codepathFbInstagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepathFbInstagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-codepathFbInstagram/Pods-codepathFbInstagram.debug.xcconfig"; sourceTree = "<group>"; };
 		6FD180EA9703BAF0EF9487E4 /* libPods-codepathFbInstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-codepathFbInstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B1B4FD020E8647B0074633B /* InstagramPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstagramPostTableViewCell.h; sourceTree = "<group>"; };
+		8B1B4FD120E8647C0074633B /* InstagramPostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstagramPostTableViewCell.m; sourceTree = "<group>"; };
+		8B4A951B20E5CD1300CAB78C /* codepathFbInstagram-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "codepathFbInstagram-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B4A951C20E5CD1300CAB78C /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		8B5BFAF420DB5CCA00F45913 /* codepathFbInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = codepathFbInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B5BFAF720DB5CCA00F45913 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8B5BFAF820DB5CCA00F45913 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -84,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				8B5BFAF720DB5CCA00F45913 /* AppDelegate.h */,
+				8B4A951C20E5CD1300CAB78C /* File.swift */,
 				8B5BFAF820DB5CCA00F45913 /* AppDelegate.m */,
 				8B5BFAFA20DB5CCA00F45913 /* ViewController.h */,
 				8B5BFAFB20DB5CCA00F45913 /* ViewController.m */,
@@ -94,10 +101,13 @@
 				8B5BFB0620DB5CCB00F45913 /* main.m */,
 				8B5BFB0D20DCA6E300F45913 /* FeedViewController.h */,
 				8B5BFB0E20DCA6E300F45913 /* FeedViewController.m */,
+				8B1B4FD020E8647B0074633B /* InstagramPostTableViewCell.h */,
+				8B1B4FD120E8647C0074633B /* InstagramPostTableViewCell.m */,
 				8B5BFB1020DCA94F00F45913 /* CameraViewController.h */,
 				8B5BFB1120DCA94F00F45913 /* CameraViewController.m */,
 				8B5BFB1320DCAA7A00F45913 /* Post.h */,
 				8B5BFB1420DCAA7A00F45913 /* Post.m */,
+				8B4A951B20E5CD1300CAB78C /* codepathFbInstagram-Bridging-Header.h */,
 			);
 			path = codepathFbInstagram;
 			sourceTree = "<group>";
@@ -143,6 +153,7 @@
 				TargetAttributes = {
 					8B5BFAF320DB5CCA00F45913 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -204,10 +215,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-codepathFbInstagram/Pods-codepathFbInstagram-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/Parse/Parse.bundle",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/en.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/fr.lproj",
+				"${PODS_ROOT}/ParseUI/ParseUI/Resources/Localization/pt-BR.lproj",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Parse.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/en.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/fr.lproj",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/pt-BR.lproj",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -223,9 +240,11 @@
 			files = (
 				8B5BFB1220DCA94F00F45913 /* CameraViewController.m in Sources */,
 				8B5BFB1520DCAA7A00F45913 /* Post.m in Sources */,
+				8B4A951D20E5CD1300CAB78C /* File.swift in Sources */,
 				8B5BFAFC20DB5CCA00F45913 /* ViewController.m in Sources */,
 				8B5BFB0720DB5CCB00F45913 /* main.m in Sources */,
 				8B5BFB0F20DCA6E300F45913 /* FeedViewController.m in Sources */,
+				8B1B4FD220E8647C0074633B /* InstagramPostTableViewCell.m in Sources */,
 				8B5BFAF920DB5CCA00F45913 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +386,7 @@
 			baseConfigurationReference = 232CC0634004C306558AA31F /* Pods-codepathFbInstagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = codepathFbInstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -375,6 +395,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.codepathFbInstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "codepathFbInstagram/codepathFbInstagram-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -384,6 +407,7 @@
 			baseConfigurationReference = 9398174192E4AECE6B6E5EA5 /* Pods-codepathFbInstagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = codepathFbInstagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -392,6 +416,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.codepathFbInstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "codepathFbInstagram/codepathFbInstagram-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -1,9 +1,12 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/Parse"
-LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bolts" "${PODS_CONFIGURATION_BUILD_DIR}/Parse"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Bolts" -isystem "${PODS_ROOT}/Headers/Public/Parse"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Bolts" -l"Parse" -l"sqlite3" -l"z" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "QuartzCore" -framework "Security" -framework "StoreKit" -framework "SystemConfiguration" -weak_framework "Accounts" -weak_framework "Social"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bolts" "${PODS_ROOT}/Headers/Public/Parse" "${PODS_ROOT}/Headers/Public/ParseUI"
+LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bolts" "${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/Parse" "${PODS_CONFIGURATION_BUILD_DIR}/ParseLiveQuery" "${PODS_CONFIGURATION_BUILD_DIR}/ParseUI" "${PODS_CONFIGURATION_BUILD_DIR}/Starscream"
+OTHER_CFLAGS = $(inherited) -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift/BoltsSwift.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/Bolts/Bolts.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/Parse/Parse.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/ParseLiveQuery/ParseLiveQuery.modulemap" -fmodule-map-file="${PODS_ROOT}/Headers/Public/ParseUI/ParseUI.modulemap" -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.modulemap" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Bolts" -isystem "${PODS_ROOT}/Headers/Public/Parse" -isystem "${PODS_ROOT}/Headers/Public/ParseUI"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Bolts" -l"Bolts-Swift" -l"Parse" -l"ParseLiveQuery" -l"ParseUI" -l"Starscream" -l"sqlite3" -l"z" -framework "AudioToolbox" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreLocation" -framework "Foundation" -framework "QuartzCore" -framework "Security" -framework "StoreKit" -framework "SystemConfiguration" -framework "UIKit" -weak_framework "Accounts" -weak_framework "Social"
+OTHER_SWIFT_FLAGS = $(inherited) -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift/BoltsSwift.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/Bolts/Bolts.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/Parse/Parse.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/ParseLiveQuery/ParseLiveQuery.modulemap" -Xcc -fmodule-map-file="${PODS_ROOT}/Headers/Public/ParseUI/ParseUI.modulemap" -Xcc -fmodule-map-file="${PODS_CONFIGURATION_BUILD_DIR}/Starscream/Starscream.modulemap" $(inherited) "-D" "COCOAPODS"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+SWIFT_INCLUDE_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Bolts-Swift" "${PODS_CONFIGURATION_BUILD_DIR}/ParseLiveQuery" "${PODS_CONFIGURATION_BUILD_DIR}/Starscream"
