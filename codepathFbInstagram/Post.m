@@ -5,7 +5,7 @@
 //  Created by Chi Hwa Michael Ting on 6/21/18.
 //  Copyright © 2018 CodePath. All rights reserved.
 //
-#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Camera-Quickstart#permissions
+#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#use-case-post-photos-to-instagram-parse
 
 #import "Post.h"
 

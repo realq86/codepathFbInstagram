@@ -5,7 +5,7 @@
 //  Created by Chi Hwa Michael Ting on 6/20/18.
 //  Copyright © 2018 CodePath. All rights reserved.
 //
-
+#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#user-registration
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
@@ -17,3 +17,4 @@
     
 @end
 
+#pragma mark #1 END

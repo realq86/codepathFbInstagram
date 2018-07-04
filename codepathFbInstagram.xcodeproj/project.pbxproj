@@ -18,6 +18,7 @@
 		8B5BFB0F20DCA6E300F45913 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFB0E20DCA6E300F45913 /* FeedViewController.m */; };
 		8B5BFB1220DCA94F00F45913 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFB1120DCA94F00F45913 /* CameraViewController.m */; };
 		8B5BFB1520DCAA7A00F45913 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFB1420DCAA7A00F45913 /* Post.m */; };
+		8B7A467020EC55AF00F5C828 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A466F20EC55AF00F5C828 /* Constant.m */; };
 		CACEDE3E375FA84B02BDFD6D /* libPods-codepathFbInstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD180EA9703BAF0EF9487E4 /* libPods-codepathFbInstagram.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		8B5BFB1120DCA94F00F45913 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		8B5BFB1320DCAA7A00F45913 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		8B5BFB1420DCAA7A00F45913 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		8B7A466E20EC558500F5C828 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
+		8B7A466F20EC55AF00F5C828 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
 		9398174192E4AECE6B6E5EA5 /* Pods-codepathFbInstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepathFbInstagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepathFbInstagram/Pods-codepathFbInstagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +92,8 @@
 		8B5BFAF620DB5CCA00F45913 /* codepathFbInstagram */ = {
 			isa = PBXGroup;
 			children = (
-				8B5BFAF720DB5CCA00F45913 /* AppDelegate.h */,
 				8B4A951C20E5CD1300CAB78C /* File.swift */,
+				8B5BFAF720DB5CCA00F45913 /* AppDelegate.h */,
 				8B5BFAF820DB5CCA00F45913 /* AppDelegate.m */,
 				8B5BFAFA20DB5CCA00F45913 /* ViewController.h */,
 				8B5BFAFB20DB5CCA00F45913 /* ViewController.m */,
@@ -108,6 +111,8 @@
 				8B5BFB1320DCAA7A00F45913 /* Post.h */,
 				8B5BFB1420DCAA7A00F45913 /* Post.m */,
 				8B4A951B20E5CD1300CAB78C /* codepathFbInstagram-Bridging-Header.h */,
+				8B7A466E20EC558500F5C828 /* Constant.h */,
+				8B7A466F20EC55AF00F5C828 /* Constant.m */,
 			);
 			path = codepathFbInstagram;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				8B5BFB0720DB5CCB00F45913 /* main.m in Sources */,
 				8B5BFB0F20DCA6E300F45913 /* FeedViewController.m in Sources */,
 				8B1B4FD220E8647C0074633B /* InstagramPostTableViewCell.m in Sources */,
+				8B7A467020EC55AF00F5C828 /* Constant.m in Sources */,
 				8B5BFAF920DB5CCA00F45913 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,9 +15,18 @@
 
 @implementation AppDelegate
 
+#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#debugging
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // set init log level
+    [Parse setLogLevel:PFLogLevelDebug];
+    
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveWillSendURLRequestNotification:) name:PFNetworkWillSendURLRequestNotification object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(receiveDidReceiveURLResponseNotification:) name:PFNetworkDidReceiveURLResponseNotification object:nil];
+    
+#pragma mark #2 Code snippet for : https://guides.codepath.com/ios/Configuring-a-Parse-Server#enabling-client-sdk-integration
+
     ParseClientConfiguration *config = [ParseClientConfiguration configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
         
         configuration.applicationId = @"codepathInstagram";
@@ -26,7 +35,7 @@
     }];
     
     [Parse initializeWithConfiguration:config];
-    
+#pragma mark #2 END
     
     if (PFUser.currentUser) {        
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -39,6 +48,32 @@
     return YES;
 }
 
+
+- (void)receiveWillSendURLRequestNotification:(NSNotification *) notification {
+    
+    id request = notification.userInfo[PFNetworkNotificationURLRequestUserInfoKey];
+    
+    if ([request isKindOfClass:[NSMutableURLRequest class]]) {
+        NSMutableURLRequest *urlRequest = (NSMutableURLRequest *)request;
+        NSLog(@"------------ URL: %@", urlRequest.URL.absoluteString);
+    }
+}
+
+- (void)receiveDidReceiveURLResponseNotification:(NSNotification *) notification {
+    
+    id response = notification.userInfo[PFNetworkNotificationURLResponseUserInfoKey];
+    id responseBody = notification.userInfo[PFNetworkNotificationURLResponseBodyUserInfoKey];
+    
+    if ( [response isKindOfClass:[NSHTTPURLResponse class]] ) {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        NSLog(@"---------- Status Code: %ld", (long)httpResponse.statusCode);
+        
+        if ( [responseBody isKindOfClass:[NSString class]] ) {
+            NSLog(@"--------- Response Body: %@", (NSString *)responseBody);
+        }
+    }
+}
+#pragma mark #1 END
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
