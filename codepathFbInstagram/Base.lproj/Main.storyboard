@@ -14,7 +14,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,16 +114,19 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" id="U9W-CS-Tml" customClass="InstagramPostTableViewCell">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellID" rowHeight="50" id="U9W-CS-Tml" customClass="InstagramPostTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U9W-CS-Tml" id="sEK-9v-Wkb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbq-KU-Dt8" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bbq-KU-Dt8" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="jNn-VX-1q6"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.73333333329999995" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -146,10 +149,17 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pqx-zK-ZlK">
-                                <rect key="frame" x="160" y="612" width="54" height="30"/>
+                                <rect key="frame" x="9" y="612" width="356" height="30"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="cameraTapped:" destination="Wrb-QP-lS4" eventType="touchUpInside" id="Bnn-lg-9wR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loe-9I-G6C">
+                                <rect key="frame" x="163.5" y="541" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="Wrb-QP-lS4" eventType="touchUpInside" id="DbR-Co-mwh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -157,14 +167,18 @@
                         <constraints>
                             <constraint firstItem="pqx-zK-ZlK" firstAttribute="centerX" secondItem="rIY-ex-591" secondAttribute="centerX" id="DEG-EK-2j9"/>
                             <constraint firstItem="tUy-xB-V2j" firstAttribute="bottom" secondItem="pqx-zK-ZlK" secondAttribute="bottom" constant="25" id="KHV-Ed-lYO"/>
+                            <constraint firstItem="pqx-zK-ZlK" firstAttribute="top" secondItem="loe-9I-G6C" secondAttribute="bottom" constant="41" id="QLf-DP-BeT"/>
                             <constraint firstItem="tUy-xB-V2j" firstAttribute="bottom" secondItem="PcG-gU-bNe" secondAttribute="bottom" id="T6S-Zv-0G5"/>
                             <constraint firstItem="PcG-gU-bNe" firstAttribute="top" secondItem="tUy-xB-V2j" secondAttribute="top" id="TZj-t7-Zcw"/>
                             <constraint firstItem="tUy-xB-V2j" firstAttribute="trailing" secondItem="PcG-gU-bNe" secondAttribute="trailing" id="Xos-as-FZu"/>
+                            <constraint firstItem="pqx-zK-ZlK" firstAttribute="centerX" secondItem="loe-9I-G6C" secondAttribute="centerX" id="YNn-w2-YaZ"/>
                             <constraint firstItem="PcG-gU-bNe" firstAttribute="leading" secondItem="tUy-xB-V2j" secondAttribute="leading" id="ntL-gT-o0g"/>
+                            <constraint firstItem="tUy-xB-V2j" firstAttribute="trailing" secondItem="pqx-zK-ZlK" secondAttribute="trailing" constant="10" id="xiM-mt-DYa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tUy-xB-V2j"/>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="loe-9I-G6C" id="gjX-mF-RBZ"/>
                         <outlet property="tableView" destination="PcG-gU-bNe" id="gxT-Li-vVN"/>
                         <segue destination="6W8-yb-qtv" kind="presentation" identifier="showCamera" id="Fvq-P5-IRx"/>
                     </connections>

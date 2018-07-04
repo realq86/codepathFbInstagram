@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "codepathFbInstagram-Bridging-Header.h"
+
 @import Parse;
 @import ParseLiveQuery;
 
@@ -20,5 +21,6 @@
 
 @property (strong, nonatomic) PFLiveQueryClient *client;
 @property (strong, nonatomic) PFLiveQuerySubscription *subscription;
+@property (strong, nonatomic) IBOutlet UIButton *logoutButton;
 
 @end

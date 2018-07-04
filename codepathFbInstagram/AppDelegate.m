@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import "ViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -18,6 +20,13 @@
 #pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Building-Data-driven-Apps-with-Parse#debugging
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [NSNotificationCenter.defaultCenter addObserverForName:@"didLogout"
+                                                    object:nil
+                                                     queue:[NSOperationQueue mainQueue]
+                                                usingBlock:^(NSNotification * _Nonnull note) {
+        [self logout];
+    }];
     
     // set init log level
     [Parse setLogLevel:PFLogLevelDebug];
@@ -46,6 +55,22 @@
     
     
     return YES;
+}
+
+- (void)logout {
+    
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        
+        if (!error) {
+            NSLog(@"Successful loggout");
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            ViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+            self.window.rootViewController = loginViewController;
+        }
+        else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 

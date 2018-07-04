@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol LogoutProtocol
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+- (void)logout;
+
+@end
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, LogoutProtocol>
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)logout;
 
 @end
 

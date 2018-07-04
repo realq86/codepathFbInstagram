@@ -9,6 +9,7 @@
 
 #import "ViewController.h"
 #import "Parse/Parse.h"
+#import "FeedViewController.h"
 
 @interface ViewController ()
 
@@ -72,6 +73,10 @@
             NSLog(@"User logged in successfully");
             
             // display view controller that needs to shown after successful login
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            FeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"AuthenticatedViewController"];
+            [self presentViewController:feedVC animated:YES completion:nil];
         }
     }];
 }

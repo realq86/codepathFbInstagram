@@ -9,7 +9,7 @@
 #import "FeedViewController.h"
 #import "Post.h"
 #import "InstagramPostTableViewCell.h"
-
+#import "AppDelegate.h"
 //#import "Parse/Parse.h"
 
 @interface FeedViewController ()
@@ -59,6 +59,14 @@
             // handle error
         }
     }];
+}
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    
+//    [((id<LogoutProtocol>)UIApplication.sharedApplication.delegate) logout];
+    
+    [NSNotificationCenter.defaultCenter postNotificationName:@"didLogout" object:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
