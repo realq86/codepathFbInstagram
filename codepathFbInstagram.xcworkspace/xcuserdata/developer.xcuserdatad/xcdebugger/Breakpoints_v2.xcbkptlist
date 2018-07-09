@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.610244"
+            timestampString = "552535703.031666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.610315"
+            timestampString = "552535703.033821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -35,49 +35,49 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__33-[FeedViewController viewDidLoad]_block_invoke"
                   moduleName = "codepathFbInstagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/OnBoardUSB/Developer/codepathFbInstagram/codepathFbInstagram/FeedViewController.m"
-                  timestampString = "552102834.312667"
+                  timestampString = "552802226.7713521"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "297">
+                  offsetFromSymbolStart = "300">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__33-[FeedViewController viewDidLoad]_block_invoke_2"
                   moduleName = "codepathFbInstagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/OnBoardUSB/Developer/codepathFbInstagram/codepathFbInstagram/FeedViewController.m"
-                  timestampString = "552102834.315925"
+                  timestampString = "552802226.773104"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "12">
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__destroy_helper_block_"
                   moduleName = "codepathFbInstagram"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/OnBoardUSB/Developer/codepathFbInstagram/codepathFbInstagram/FeedViewController.m"
-                  timestampString = "552102834.317742"
+                  timestampString = "552802226.775183"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "16">
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -85,11 +85,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.6103669"
+            timestampString = "552535703.034256"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "51"
@@ -101,43 +101,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.610417"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.610467"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "codepathFbInstagram/FeedViewController.m"
-            timestampString = "552369252.610512"
+            timestampString = "552535703.035838"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "78"
@@ -152,13 +120,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "codepathFbInstagram/InstagramPostTableViewCell.m"
-            timestampString = "552369252.610561"
+            filePath = "codepathFbInstagram/CameraViewController.m"
+            timestampString = "552806556.348192"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-setPost:"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "-setupLivePreview"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,13 +136,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "codepathFbInstagram/InstagramPostTableViewCell.m"
-            timestampString = "552369252.61061"
+            filePath = "codepathFbInstagram/CameraViewController.m"
+            timestampString = "552806556.348676"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-setPost:"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "-xTapped:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -195,6 +196,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5wd-ZK-Ti9">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJj-xn-oRg">
+                                        <rect key="frame" x="165" y="567" width="44" height="30"/>
+                                        <state key="normal" title="SNAP!"/>
+                                        <connections>
+                                            <action selector="didTakePhoto:" destination="6W8-yb-qtv" eventType="touchUpInside" id="0sy-YE-mLl"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Qd-du-cM3">
+                                        <rect key="frame" x="219" y="519" width="151" height="123"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9Qd-du-cM3" secondAttribute="height" multiplier="151:123" id="6wM-Lu-GF6"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="zJj-xn-oRg" secondAttribute="bottom" constant="50" id="1fL-KW-Ts0"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Qd-du-cM3" secondAttribute="bottom" constant="5" id="3VA-sc-QpE"/>
+                                    <constraint firstItem="9Qd-du-cM3" firstAttribute="leading" secondItem="zJj-xn-oRg" secondAttribute="trailing" constant="10" id="gwR-wT-ZGi"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Qd-du-cM3" secondAttribute="trailing" constant="5" id="nTl-ax-UGX"/>
+                                    <constraint firstItem="zJj-xn-oRg" firstAttribute="centerX" secondItem="5wd-ZK-Ti9" secondAttribute="centerX" id="pMl-fy-1r4"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMA-ct-0s4">
                                 <rect key="frame" x="20" y="40" width="30" height="30"/>
                                 <state key="normal" title="X"/>
@@ -206,14 +233,22 @@
                         <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="iMA-ct-0s4" firstAttribute="leading" secondItem="Qs2-T4-8OV" secondAttribute="leading" constant="20" id="2Zz-gN-uVj"/>
+                            <constraint firstItem="Qs2-T4-8OV" firstAttribute="bottom" secondItem="5wd-ZK-Ti9" secondAttribute="bottom" id="Fov-VZ-o1z"/>
+                            <constraint firstItem="Qs2-T4-8OV" firstAttribute="trailing" secondItem="5wd-ZK-Ti9" secondAttribute="trailing" id="JOu-lE-4lq"/>
+                            <constraint firstItem="5wd-ZK-Ti9" firstAttribute="leading" secondItem="Qs2-T4-8OV" secondAttribute="leading" id="QVf-Zt-g2k"/>
                             <constraint firstItem="iMA-ct-0s4" firstAttribute="top" secondItem="Qs2-T4-8OV" secondAttribute="top" constant="20" id="RQh-vI-910"/>
+                            <constraint firstItem="5wd-ZK-Ti9" firstAttribute="top" secondItem="Qs2-T4-8OV" secondAttribute="top" id="gTt-XE-swP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qs2-T4-8OV"/>
                     </view>
+                    <connections>
+                        <outlet property="captureImageView" destination="9Qd-du-cM3" id="Ew7-DG-tzm"/>
+                        <outlet property="previewView" destination="5wd-ZK-Ti9" id="RDA-X9-pSN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vvK-vM-bBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1505" y="130"/>
+            <point key="canvasLocation" x="1504.8" y="129.98500749625188"/>
         </scene>
     </scenes>
 </document>

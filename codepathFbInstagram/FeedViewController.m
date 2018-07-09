@@ -95,22 +95,22 @@
 - (IBAction)cameraTapped:(id)sender {
     
 #pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Camera-Quickstart#permissions
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-        imagePickerVC.delegate = self;
-        imagePickerVC.allowsEditing = YES;
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-    }
-    else {
-        UIImagePickerController *imagePickerVC = [UIImagePickerController new];
-        imagePickerVC.delegate = self;
-        imagePickerVC.allowsEditing = YES;
-        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-    }
+//    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//        UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+//        imagePickerVC.delegate = self;
+//        imagePickerVC.allowsEditing = YES;
+//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+//
+//        [self presentViewController:imagePickerVC animated:YES completion:nil];
+//    }
+//    else {
+//        UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+//        imagePickerVC.delegate = self;
+//        imagePickerVC.allowsEditing = YES;
+//        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//
+//        [self presentViewController:imagePickerVC animated:YES completion:nil];
+//    }
     
 //    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
 //    imagePickerVC.delegate = self;
@@ -126,7 +126,7 @@
 //
 //    [self presentViewController:imagePickerVC animated:YES completion:nil];
 
-    
+    [self performSegueWithIdentifier:@"showCamera" sender:nil];
 }
     
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {

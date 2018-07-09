@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@import AVKit;
 
-@interface CameraViewController : UIViewController
+@interface CameraViewController : UIViewController <AVCapturePhotoCaptureDelegate>
+@property (strong, nonatomic) IBOutlet UIView *previewView;
+@property (strong, nonatomic) IBOutlet UIImageView *captureImageView;
 
 @end
