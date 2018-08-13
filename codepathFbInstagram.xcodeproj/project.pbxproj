@@ -19,6 +19,7 @@
 		8B5BFB1220DCA94F00F45913 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFB1120DCA94F00F45913 /* CameraViewController.m */; };
 		8B5BFB1520DCAA7A00F45913 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B5BFB1420DCAA7A00F45913 /* Post.m */; };
 		8B7A467020EC55AF00F5C828 /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7A466F20EC55AF00F5C828 /* Constant.m */; };
+		8BB191D92117EDED002B9538 /* CameraViewControllerSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB191D82117EDED002B9538 /* CameraViewControllerSwift.swift */; };
 		CACEDE3E375FA84B02BDFD6D /* libPods-codepathFbInstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FD180EA9703BAF0EF9487E4 /* libPods-codepathFbInstagram.a */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		8B5BFB1420DCAA7A00F45913 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		8B7A466E20EC558500F5C828 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		8B7A466F20EC55AF00F5C828 /* Constant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constant.m; sourceTree = "<group>"; };
+		8BB191D82117EDED002B9538 /* CameraViewControllerSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewControllerSwift.swift; sourceTree = "<group>"; };
 		9398174192E4AECE6B6E5EA5 /* Pods-codepathFbInstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-codepathFbInstagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-codepathFbInstagram/Pods-codepathFbInstagram.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 				8B1B4FD120E8647C0074633B /* InstagramPostTableViewCell.m */,
 				8B5BFB1020DCA94F00F45913 /* CameraViewController.h */,
 				8B5BFB1120DCA94F00F45913 /* CameraViewController.m */,
+				8BB191D82117EDED002B9538 /* CameraViewControllerSwift.swift */,
 				8B5BFB1320DCAA7A00F45913 /* Post.h */,
 				8B5BFB1420DCAA7A00F45913 /* Post.m */,
 				8B4A951B20E5CD1300CAB78C /* codepathFbInstagram-Bridging-Header.h */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B5BFB1220DCA94F00F45913 /* CameraViewController.m in Sources */,
+				8BB191D92117EDED002B9538 /* CameraViewControllerSwift.swift in Sources */,
 				8B5BFB1520DCAA7A00F45913 /* Post.m in Sources */,
 				8B4A951D20E5CD1300CAB78C /* File.swift in Sources */,
 				8B5BFAFC20DB5CCA00F45913 /* ViewController.m in Sources */,
@@ -404,7 +408,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "codepathFbInstagram/codepathFbInstagram-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -425,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.codepathFbInstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "codepathFbInstagram/codepathFbInstagram-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
