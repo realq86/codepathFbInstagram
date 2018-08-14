@@ -23,6 +23,11 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
 
         // Do any additional setup after loading the view.
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .medium
         
@@ -35,7 +40,7 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
         do {
             let input = try AVCaptureDeviceInput(device: backCamera)
             stillImageOutput = AVCapturePhotoOutput()
-
+            
             if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
                 captureSession.addInput(input)
                 captureSession.addOutput(stillImageOutput)
@@ -48,21 +53,14 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.videoPreviewLayer.frame = self.previewView.bounds
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.captureSession.stopRunning()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @IBAction func didTakePhoto(_ sender: Any) {
-        
-        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        stillImageOutput.capturePhoto(with: settings, delegate: self)
     }
     
     func setupLivePreview() {
@@ -73,10 +71,21 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
         videoPreviewLayer.connection?.videoOrientation = .portrait
         previewView.layer.addSublayer(videoPreviewLayer)
         
-        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-            self?.captureSession.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async { //[weak self] in
+            self.captureSession.startRunning()
+            DispatchQueue.main.async {
+                self.videoPreviewLayer.frame = self.previewView.bounds
+            }
         }
     }
+    
+    @IBAction func didTakePhoto(_ sender: Any) {
+        
+        let settings = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
+        stillImageOutput.capturePhoto(with: settings, delegate: self)
+    }
+    
+    
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         

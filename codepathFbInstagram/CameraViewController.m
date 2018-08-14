@@ -10,7 +10,7 @@
 @import AVKit;
 
 @interface CameraViewController ()
-@property (nonatomic) AVCaptureSession *session;
+@property (nonatomic) AVCaptureSession *capturesSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @end
@@ -19,57 +19,75 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+}
+
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     // Setup your camera here...
     
-    self.session = [AVCaptureSession new];
-    self.session.sessionPreset = AVCaptureSessionPresetPhoto;
+    self.capturesSession = [AVCaptureSession new];
+    self.capturesSession.sessionPreset = AVCaptureSessionPresetPhoto;
     
     AVCaptureDevice *backCamera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    if (!backCamera) {
+        NSLog(@"Unable to access back camera!");
+        return;
+    }
     
     NSError *error;
     AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:backCamera
                                                                         error:&error];
-
-    if (error) {
-        NSLog(@"~~~~~ERROR%@", error.localizedDescription);
-    }
-    else if (self.session && [self.session canAddInput:input]) {
-        [self.session addInput:input];
     
-        self.stillImageOutput = [AVCapturePhotoOutput new];
+    if (!error) {
         
-        if ([self.session canAddOutput:self.stillImageOutput]) {
-            [self.session addOutput:self.stillImageOutput];
+        self.stillImageOutput = [AVCapturePhotoOutput new];
+        if ([self.capturesSession canAddInput:input] && [self.capturesSession canAddOutput:self.stillImageOutput]) {
             
-            //Configure the Live Preiview here
+            [self.capturesSession addInput:input];
+            [self.capturesSession addOutput:self.stillImageOutput];
             [self setupLivePreview];
         }
     }
-    
-}
-
-- (void)setupLivePreview {
-    
-    self.videoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.session];
-    if (self.videoPreviewLayer) {
-        
-        self.videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-        self.videoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
-        [self.previewView.layer addSublayer:self.videoPreviewLayer];
-        [self.session startRunning];
+    else {
+        NSLog(@"Error Unable to initialize back camera: %@", error.localizedDescription);
     }
-    
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.videoPreviewLayer.frame = self.previewView.bounds;
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.capturesSession stopRunning];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)setupLivePreview {
+    
+    self.videoPreviewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.capturesSession];
+    if (self.videoPreviewLayer) {
+        
+        self.videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
+        self.videoPreviewLayer.connection.videoOrientation = AVCaptureVideoOrientationPortrait;
+        [self.previewView.layer addSublayer:self.videoPreviewLayer];
+        
+        dispatch_queue_t globalQueue =  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+        dispatch_async(globalQueue, ^{
+            [self.capturesSession startRunning];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.videoPreviewLayer.frame = self.previewView.bounds;
+            });
+        });
+    }
+}
+
 - (IBAction)xTapped:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
