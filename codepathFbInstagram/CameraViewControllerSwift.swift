@@ -6,6 +6,8 @@
 //  Copyright © 2018 CodePath. All rights reserved.
 //
 
+// MARK: - #1 Code snippet for : https://guides.codepath.com/ios/Creating-a-Custom-Camera-View#step-4-define-instance-variables
+
 import UIKit
 import AVKit
 
@@ -39,6 +41,7 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
         
         do {
             let input = try AVCaptureDeviceInput(device: backCamera)
+           
             stillImageOutput = AVCapturePhotoOutput()
             
             if captureSession.canAddInput(input) && captureSession.canAddOutput(stillImageOutput) {
@@ -46,7 +49,6 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
                 captureSession.addOutput(stillImageOutput)
                 setupLivePreview()
             }
-            
         }
         catch let error  {
             print("Error Unable to initialize back camera:  \(error.localizedDescription)")
@@ -102,3 +104,5 @@ class CameraViewControllerSwift: UIViewController, AVCapturePhotoCaptureDelegate
     }
     
 }
+
+// MARK: - #1 END

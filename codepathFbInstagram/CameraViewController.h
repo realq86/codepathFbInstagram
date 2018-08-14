@@ -6,6 +6,8 @@
 //  Copyright © 2018 CodePath. All rights reserved.
 //
 
+#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Creating-a-Custom-Camera-View#step-4-define-instance-variables
+
 #import <UIKit/UIKit.h>
 @import AVKit;
 
@@ -14,3 +16,4 @@
 @property (strong, nonatomic) IBOutlet UIImageView *captureImageView;
 
 @end
+#pragma mark #1 END

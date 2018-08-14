@@ -5,7 +5,7 @@
 //  Created by Chi Hwa Michael Ting on 6/21/18.
 //  Copyright © 2018 CodePath. All rights reserved.
 //
-
+#pragma mark #1 Code snippet for : https://guides.codepath.com/ios/Creating-a-Custom-Camera-View#step-4-define-instance-variables
 #import "CameraViewController.h"
 @import AVKit;
 
@@ -45,6 +45,7 @@
     if (!error) {
         
         self.stillImageOutput = [AVCapturePhotoOutput new];
+        
         if ([self.capturesSession canAddInput:input] && [self.capturesSession canAddOutput:self.stillImageOutput]) {
             
             [self.capturesSession addInput:input];
@@ -89,10 +90,9 @@
 }
 
 - (IBAction)xTapped:(id)sender {
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
+
 - (IBAction)didTakePhoto:(id)sender {
     
     AVCapturePhotoSettings *settings = [AVCapturePhotoSettings photoSettingsWithFormat:@{AVVideoCodecKey: AVVideoCodecTypeJPEG}];
@@ -103,19 +103,14 @@
 - (void)captureOutput:(AVCapturePhotoOutput *)output didFinishProcessingPhoto:(AVCapturePhoto *)photo error:(nullable NSError *)error {
     
     NSData *imageData = photo.fileDataRepresentation;
-    UIImage *image = [UIImage imageWithData:imageData];
-      // Add the image to captureImageView here...
-    self.captureImageView.image = image;
+    
+    if (imageData) {
+        UIImage *image = [UIImage imageWithData:imageData];
+        // Add the image to captureImageView here...
+        self.captureImageView.image = image;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
+#pragma mark #1 END
+
